@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'userLogin.dart';
 
 void main() => runApp(
       MaterialApp(
         home: SafeArea(
           child: Scaffold(
-            // backgroundColor: Colors.cyan,
+            backgroundColor: Colors.grey,
             body: marketOnline(),
           ),
         ),
@@ -23,17 +25,17 @@ class _marketOnlineState extends State<marketOnline> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("images/background.jpg"),
-          fit: BoxFit.cover,
-        ),
+        // image: DecorationImage(
+        //   image: AssetImage("images/bk2.jpg"),
+        //   fit: BoxFit.cover,
+        // ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        // crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           SizedBox(
-            height: 100.0,
+            height: 60.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -42,9 +44,9 @@ class _marketOnlineState extends State<marketOnline> {
                 'Shop from your\nLocal shops',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 40.0,
+                  fontSize: 50.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.yellow,
                 ),
               )
             ],
@@ -54,20 +56,26 @@ class _marketOnlineState extends State<marketOnline> {
           ),
           ButtonTheme(
             height: 60.0,
+            minWidth: 300.0,
             child: RaisedButton(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.white, width: 5.0),
+                    borderRadius: BorderRadius.circular(32.0),
+                    side: BorderSide(color: Colors.yellow, width: 3.0),
                   ),
-                  color: Colors.transparent,
+                  color: Colors.yellow,
                   child: Text(
                     'Customer',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontSize: 30.0,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => userLogin()),
+                    );
+                  },
                 ),
           ),
           SizedBox(
@@ -75,17 +83,18 @@ class _marketOnlineState extends State<marketOnline> {
           ),
           ButtonTheme(
             height: 60.0,
+            minWidth: 300.0,
             child: FlatButton(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.white, width: 5.0),
+                    borderRadius: BorderRadius.circular(32.0),
+                    side: BorderSide(color: Colors.yellow, width: 3.0),
                   ),
                   color: Colors.transparent,
                   child: Text(
                     'Seller',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
+                      color: Colors.black,
+                      fontSize: 30.0,
                     ),
                   ),
                   onPressed: () {},
