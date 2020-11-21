@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'consumer/userLogin.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 void main() => runApp(
       MaterialApp(
         home: SafeArea(
           child: Scaffold(
-            backgroundColor: Colors.grey,
+            backgroundColor: HexColor("#b2ebf2"),
             body: marketOnline(),
           ),
         ),
@@ -41,12 +42,12 @@ class _marketOnlineState extends State<marketOnline> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Shop from your\nLocal shops',
+                'ARZI\nThapar Institute\nEngineering & Technology',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 50.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.yellow,
+                  color: HexColor("#ff5722"),
                 ),
               )
             ],
@@ -54,52 +55,39 @@ class _marketOnlineState extends State<marketOnline> {
           SizedBox(
             height: 50.0,
           ),
-          ButtonTheme(
-            height: 60.0,
-            minWidth: 300.0,
-            child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                    side: BorderSide(color: Colors.yellow, width: 3.0),
-                  ),
-                  color: Colors.yellow,
-                  child: Text(
-                    'Customer',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ButtonTheme(
+                height: 60.0,
+                minWidth: 200.0,
+                child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0),
+                        side: BorderSide(color: HexColor("#00bcd4"), width: 3.0),
+                      ),
+                      color: HexColor("#00bcd4"),
+                      child: Text(
+                        'Student',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 30.0,
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => userLogin()),
+                        );
+                      },
                     ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => userLogin()),
-                    );
-                  },
-                ),
+              ),
+            ],
           ),
-          SizedBox(
-            height: 30.0,
-          ),
-          ButtonTheme(
-            height: 60.0,
-            minWidth: 300.0,
-            child: FlatButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
-                    side: BorderSide(color: Colors.yellow, width: 3.0),
-                  ),
-                  color: Colors.transparent,
-                  child: Text(
-                    'Seller',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 30.0,
-                    ),
-                  ),
-                  onPressed: () {},
-                ),
-          ),
+          // SizedBox(
+          //   height: 30.0,
+          // ),
+
         ],
       ),
     );
